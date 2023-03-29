@@ -14,5 +14,8 @@
         "@vitejs/plugin-vue": "^4.1.0",
         "@vitejs/plugin-vue-jsx": "^3.0.1",
         "vite": "^4.2.1"
+    },
+    "dependencies": {
+        "@wingplus-ui/components": "workspace:^1.0.0"
     }
 }

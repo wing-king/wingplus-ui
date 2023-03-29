@@ -4,9 +4,14 @@ importers:
 
   .:
     specifiers:
+      '@wingplus-ui/components': workspace:^1.0.0
+      '@wingplus-ui/utils': workspace:^1.0.0
       less: ^4.1.3
       typescript: ^5.0.2
       vue: ^3.2.36
+    dependencies:
+      '@wingplus-ui/components': link:packages/components
+      '@wingplus-ui/utils': link:packages/utils
     devDependencies:
       less: 4.1.3
       typescript: 5.0.2
@@ -16,7 +21,10 @@ importers:
     specifiers:
       '@vitejs/plugin-vue': ^4.1.0
       '@vitejs/plugin-vue-jsx': ^3.0.1
+      '@wingplus-ui/components': workspace:^1.0.0
       vite: ^4.2.1
+    dependencies:
+      '@wingplus-ui/components': link:../packages/components
     devDependencies:
       '@vitejs/plugin-vue': 4.1.0_vite@4.2.1
       '@vitejs/plugin-vue-jsx': 3.0.1_vite@4.2.1
