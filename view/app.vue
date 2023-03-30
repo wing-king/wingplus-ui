@@ -6,13 +6,14 @@
 	<wp-button></wp-button>
 </template>
 <script lang="ts">
-import exp2 from './components/exp2';
-import exp1 from './components/exp1.vue';
-import exp from './components/exp';
-import { WpButton } from '@wingplus-ui/components';
-import { defineComponent } from 'vue';
+import exp2 from "./components/exp2";
+import exp1 from "./components/exp1.vue";
+import exp from "./components/exp";
+import { WpButton } from "@wingplus-ui/components";
+import { defineComponent } from "vue";
 
 export default defineComponent({
+	name: "app",
 	components: { exp2, exp1, exp, WpButton }
 });
 </script>

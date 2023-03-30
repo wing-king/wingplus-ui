@@ -1,9 +1,11 @@
+<template>
+	<div>这是一个.vue支持tsx的写法</div>
+</template>
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent } from "vue";
 export default defineComponent({
-	name: 'app1',
-	setup(props, ctx) {
-		return () => <div>这是一个.vue支持tsx的写法</div>;
+	setup() {
+		return {};
 	}
 });
 </script>
