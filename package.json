@@ -33,7 +33,7 @@
     "lint-staged": {
         "*.{js,vue,ts,jsx,tsx}": [
             "prettier --write",
-            "eslint --fix --ext --quiet ./"
+            "eslint --fix --ext"
         ],
         "*.{html,css,less,scss,md}": [
             "prettier --write"
