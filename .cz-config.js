@@ -51,11 +51,12 @@ module.exports = {
 	],
 	messages: {
 		type: "请选择提交类型(必填)",
-		customScope: "请输入文件修改范围(可选)",
+		scope: "请输入文件修改范围",
 		subject: "请简要描述提交(必填)",
+		body: '长说明，使用"|"换行(可选)',
 		// body: "请输入详细描述(可选)",
 		// breaking: "列出任何BREAKING CHANGES(可选)",
-		// footer: "请输入要关闭的issue(可选)",
+		footer: "请输入要关闭的issue(可选)",
 		confirmCommit: "确定提交此说明吗？"
 	},
 	allowCustomScopes: true,

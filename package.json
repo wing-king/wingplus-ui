@@ -4,7 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "commit": "git add . && cz-customizable",
+        "commit": "git-cz",
+        "commitall": "git add . && cz-customizable",
         "prepare": "husky install",
         "format": "prettier --write ./**/*.{vue,ts,tsx,js,jsx,css,less,json,md}  --no-error-on-unmatched-pattern",
         "lint:script": "eslint --ext .js,.jsx,.vue,.ts,.tsx --fix --quiet ./",
@@ -21,7 +22,6 @@
         "commitizen": "^4.3.0",
         "commitlint-config-cz": "^0.13.3",
         "commitlint-config-git-commit-emoji": "^1.0.0",
-        "cz-conventional-changelog": "^3.3.0",
         "cz-customizable": "^7.0.0",
         "eslint": "^8.37.0",
         "eslint-config-prettier": "^8.8.0",
@@ -46,5 +46,10 @@
         "*.{html,css,less,scss,md}": [
             "prettier --write"
         ]
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-customizable"
+        }
     }
 }

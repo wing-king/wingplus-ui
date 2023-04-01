@@ -176,20 +176,34 @@ packages.json 添加配置
 ### commitlint+commitizen
 
 commitlint 是一个 commit 信息校验工具
-commitizen 辅助 commit 信息 ,就像这样,通过选择输入,规范提交信息
+commitizen 辅助 commit 信息 通过选择输入,规范提交信息
 安装依赖
 
 ```
-pmpn add commitlint @commitlint/config-conventional -D -w
+pnpm add commitzen -D -w -g
+pnpm add commitlint @commitlint/config-conventional -D -w
 ```
 
 执行 pnpm husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'  
 生成对应的 commit-msg 文件
+
 安装辅助依赖
 
 ```
 pnpm add -D cz-customizable @commitlint/cli commitlint-config-git-commit-emoji commitlint-config-cz
 
+```
+
+替换 git commit 为 git cz
+
+修改 packages.json 添加
+
+```json
+ "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-customizable"
+        }
+    }
 ```
 
 配置 根目录创建 .cz-config.js
@@ -269,9 +283,10 @@ module.exports = {
 
 ```json
 "scripts" : {
-  "commit": "git add . && cz-customizable"
+  "commit":"git-cz",
+  "commitall": "git add . && cz-customizable"
 }
 ```
 
 使用 npm run commit 代替 git commit  
-这样就可以用 npm run commit 代替以前的 git add . +git commit 操作了
+使用 npm run commitall 代替 git add . +git commit 操作了
