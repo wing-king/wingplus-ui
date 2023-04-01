@@ -178,3 +178,10 @@ packages.json 添加配置
 commitlint 是一个 commit 信息校验工具
 commitizen 辅助 commit 信息 ,就像这样,通过选择输入,规范提交信息
 安装依赖
+
+```
+pmpn add commitlint @commitlint/config-conventional -D -w
+```
+
+执行 pnpm husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'  
+生成对应的 commit-msg 文件
