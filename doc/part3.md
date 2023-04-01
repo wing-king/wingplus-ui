@@ -288,5 +288,5 @@ module.exports = {
 }
 ```
 
-使用 npm run commit 代替 git commit  
-使用 npm run commitall 代替 git add . +git commit 操作了
+使用 npm run commit 代替 git commit 操作
+使用 npm run commitall 代替 git add . && git commit 操作
