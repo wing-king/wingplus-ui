@@ -20,6 +20,7 @@
         "@typescript-eslint/eslint-plugin": "^5.57.0",
         "@typescript-eslint/parser": "^5.57.0",
         "commitizen": "^4.3.0",
+        "commitlint": "^17.5.1",
         "commitlint-config-cz": "^0.13.3",
         "commitlint-config-git-commit-emoji": "^1.0.0",
         "cz-customizable": "^7.0.0",

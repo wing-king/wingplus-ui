@@ -11,9 +11,9 @@ importers:
       '@wingplus-ui/components': workspace:^1.0.0
       '@wingplus-ui/utils': workspace:^1.0.0
       commitizen: ^4.3.0
+      commitlint: ^17.5.1
       commitlint-config-cz: ^0.13.3
       commitlint-config-git-commit-emoji: ^1.0.0
-      cz-conventional-changelog: ^3.3.0
       cz-customizable: ^7.0.0
       eslint: ^8.37.0
       eslint-config-prettier: ^8.8.0
@@ -34,9 +34,9 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.57.0_s5k7qbmvzkal3edwy7gcxmnteu
       '@typescript-eslint/parser': 5.57.0_bcnce6t2n5ss3lv2getliffzhq
       commitizen: 4.3.0
+      commitlint: 17.5.1
       commitlint-config-cz: 0.13.3
       commitlint-config-git-commit-emoji: 1.0.0
-      cz-conventional-changelog: 3.3.0
       cz-customizable: 7.0.0
       eslint: 8.37.0
       eslint-config-prettier: 8.8.0_eslint@8.37.0
@@ -1538,6 +1538,18 @@ packages:
 
   /commitlint-config-git-commit-emoji/1.0.0:
     resolution: {integrity: sha512-AnWvAu50BZ2ikzlsECKya4nAvPdu62RC3U/8wmb8TlSiLbaLrz10jV8On/8tc2UW1C9ckuLQx3WkLhaiFcvPhg==}
+    dev: true
+
+  /commitlint/17.5.1:
+    resolution: {integrity: sha512-BmYX5GJrZFk/90Owlsoh7J38hbikK1AIE+j0MlU0U+Vns+JNHwOE+6jkU9UYEiyY9rrgrI50kx2thI3028FwGw==}
+    engines: {node: '>=v14'}
+    hasBin: true
+    dependencies:
+      '@commitlint/cli': 17.5.1
+      '@commitlint/types': 17.4.4
+    transitivePeerDependencies:
+      - '@swc/core'
+      - '@swc/wasm'
     dev: true
 
   /compare-func/2.0.0:
