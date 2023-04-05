@@ -22,7 +22,7 @@ jobs:
       - run: cd website && pnpm install --frozen-lockfile
 
       - name: Build
-        run: cd website && pnpm docs:build
+        run: cd website && pnpm docs:build && cd ../
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
