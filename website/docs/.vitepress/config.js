@@ -1,7 +1,6 @@
 export default {
 	title: "wingplus",
 	description: "这是一个UI库",
-	base: "/wingplus-ui/website",
 	themeConfig: {
 		siteTitle: "wingplusUI",
 		description: "ddd",
