@@ -1,7 +1,10 @@
-import { defineComponent } from 'vue';
+import { defineComponent } from "vue";
+import { createNamespace } from "../utils";
+import "./styles/index.less";
+const [name] = createNamespace("button");
 export default defineComponent({
-	name: 'button',
-	setup(props, ctx) {
-		return () => <div>这是一个button</div>;
+	name,
+	setup(props, { slots }) {
+		return <div class="button">{slots.default?.()}</div>;
 	}
 });

@@ -54,9 +54,9 @@ utils 修改 packages.json
 或者 button.tsx
 
 ```ts
-import { defineComponent } from 'vue';
+import { defineComponent } from "vue";
 export default defineComponent({
-	name: 'button',
+	name: "button",
 	setup(props, ctx) {
 		return () => <div>button</div>;
 	}
@@ -117,8 +117,8 @@ npm run dev 启动即可看到效果
 内容参考如下
 
 ```ts
-import type { App, Component } from 'vue';
-import { uiName } from './config';
+import type { App, Component } from "vue";
+import { uiName } from "./config";
 type EventShim = {
 	new (...args: any[]): {
 		$props: {
@@ -135,7 +135,7 @@ export function withInstall<T extends Component>(options: T) {
 	(options as Record<string, unknown>).install = (app: App) => {
 		const { name } = options;
 		if (name) {
-			app.component(`${uiName}-${name}`, options);
+			app.component(`${name}`, options);
 			app.component(`${uiName}-${name}`, options);
 		}
 	};
@@ -147,13 +147,13 @@ export function withInstall<T extends Component>(options: T) {
 对应的 button/index.ts 引用对应的方法，进行包装输出
 
 ```ts
-import { withInstall } from '@wingplus-ui/utils';
-import Button from './button';
-export const WpButton = withInstall(Button);
-export default WpButton;
-declare module 'vue' {
+import { withInstall } from "@wingplus-ui/utils";
+import _Button from "./button";
+export const Button = withInstall(_Button);
+export default Button;
+declare module "vue" {
 	export interface GlobalComponents {
-		WpButton: typeof WpButton;
+		WpButton: typeof Button;
 	}
 }
 ```
@@ -164,25 +164,25 @@ declare module 'vue' {
 > view/main.ts
 
 ```ts
-import { createApp } from 'vue';
-import App from './app.vue';
-import wingplusUI from '@wingplus-ui/components';
+import { createApp } from "vue";
+import App from "./app.vue";
+import wingplusUI from "@wingplus-ui/components";
 const app = createApp(App);
 app.use(wingplusUI);
-app.mount('#app');
+app.mount("#app");
 ```
 
 > 全局引用单个组件
 > view/main.ts
 
 ```ts
-import { createApp } from 'vue';
-import App from './app.vue';
-import { WpButton } from '@wingplus-ui/components';
+import { createApp } from "vue";
+import App from "./app.vue";
+import { WpButton } from "@wingplus-ui/components";
 const app = createApp(App);
 app.use(WpButton);
 
-app.mount('#app');
+app.mount("#app");
 ```
 
 > 文件内部单独引用单个组件

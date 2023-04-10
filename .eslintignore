@@ -1,5 +1,5 @@
 **.d.ts
-/packages/easyest
+/packages/components/public/**
 dist
 node_modules
 /doc

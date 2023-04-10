@@ -1,5 +1,5 @@
-import type { App, Component } from 'vue';
-import { uiName } from './config';
+import type { App, Component } from "vue";
+import { camelize } from "./format";
 type EventShim = {
 	new (...args: any[]): {
 		$props: {
@@ -16,8 +16,8 @@ export function withInstall<T extends Component>(options: T) {
 	(options as Record<string, unknown>).install = (app: App) => {
 		const { name } = options;
 		if (name) {
-			app.component(`${uiName}-${name}`, options);
-			app.component(`${uiName}-${name}`, options);
+			app.component(`${name}`, options);
+			app.component(camelize(`-${name}`), options);
 		}
 	};
 

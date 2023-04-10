@@ -1,9 +1,18 @@
 {
     "name": "wingplus-ui",
     "version": "1.0.0",
-    "description": "",
+    "description": "基于 vue3 的 UI 组件库",
     "main": "index.js",
+    "private": "false",
     "scripts": {
+        "build:cjs": "cd ./packages/components && CROSS_ENV=cjs  vite build",
+        "build:es": "cd ./packages/components && CROSS_ENV=es  vite build",
+        "build": "cd ./packages/components && vite build",
+        "docs:dev": "cd ./website && vitepress dev docs",
+        "docs:build": "cd ./website && vitepress build docs",
+        "docs:preview": "cd ./website && vitepress preview docs",
+        "changeset": "changeset",
+        "preinstall": "npx only-allow pnpm",
         "commit": "git-cz",
         "commitall": "git add . && cz-customizable",
         "prepare": "husky install",
@@ -15,6 +24,7 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
+        "@changesets/cli": "^2.26.1",
         "@commitlint/cli": "^17.5.1",
         "@commitlint/config-conventional": "^17.4.4",
         "@typescript-eslint/eslint-plugin": "^5.57.0",
@@ -23,6 +33,7 @@
         "commitlint": "^17.5.1",
         "commitlint-config-cz": "^0.13.3",
         "commitlint-config-git-commit-emoji": "^1.0.0",
+        "cross-env": "^7.0.3",
         "cz-customizable": "^7.0.0",
         "eslint": "^8.37.0",
         "eslint-config-prettier": "^8.8.0",
@@ -36,8 +47,7 @@
         "vue": "^3.2.36"
     },
     "dependencies": {
-        "@wingplus-ui/components": "workspace:^1.0.0",
-        "@wingplus-ui/utils": "workspace:^1.0.0"
+        "@wingplus-ui/components": "workspace:^1.0.0"
     },
     "lint-staged": {
         "*.{js,vue,ts,jsx,tsx}": [
