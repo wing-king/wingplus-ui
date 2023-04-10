@@ -4,7 +4,6 @@ export default {
 	base: "/wingplus-ui/",
 	themeConfig: {
 		siteTitle: "wingplusUI",
-		description: "ddd",
 		nav: [
 			{ text: "首页", link: "/" },
 			{ text: "指南", link: "/guild/" },
@@ -24,15 +23,6 @@ export default {
 						{
 							text: "快速开始",
 							link: "/guild/quickstart/"
-						}
-					]
-				},
-				{
-					text: "进阶",
-					items: [
-						{
-							text: "xx",
-							link: "/xx"
 						}
 					]
 				}
