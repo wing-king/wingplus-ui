@@ -63,7 +63,7 @@ importers:
       typescript: 5.0.2
       vite-plugin-dts: 2.2.0_vite@4.2.1
 
-  packages/utils:
+  packages/components/utils:
     specifiers: {}
 
   view:

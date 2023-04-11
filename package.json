@@ -5,6 +5,7 @@
     "main": "index.js",
     "private": "false",
     "scripts": {
+        "build:umd": "cd ./packages/components && CROSS_ENV=umd  vite build",
         "build:cjs": "cd ./packages/components && CROSS_ENV=cjs  vite build",
         "build:es": "cd ./packages/components && CROSS_ENV=es  vite build",
         "build": "cd ./packages/components && vite build",

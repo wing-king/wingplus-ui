@@ -1,7 +1,7 @@
 import { defineComponent } from "vue";
 import { createNamespace } from "../utils";
-import "../../public/fonts/iconfont.js";
-import "./styles/index.less";
+import "./fonts/iconfont.js";
+import "./icon.less";
 import { iconProps } from "./types";
 const [name] = createNamespace("icon");
 export default defineComponent({

@@ -1,5 +1,5 @@
-export * from "./src/index";
-import * as components from "./src/index";
+export * from "./compoents";
+import * as components from "./compoents";
 import { App } from "vue";
 
 export default {

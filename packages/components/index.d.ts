@@ -1,4 +1,4 @@
-import * as components from "./index";
+import * as components from "./compoents";
 declare module "@vue/runtime-core" {
 	export interface GlobalComponents {
 		WpButton: typeof components.Button;

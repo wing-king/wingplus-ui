@@ -1,6 +1,6 @@
 import { defineComponent } from "vue";
 import { createNamespace } from "../utils";
-import "./styles/index.less";
+import "./button.less";
 const [name] = createNamespace("button");
 export default defineComponent({
 	name,
