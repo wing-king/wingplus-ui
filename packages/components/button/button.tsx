@@ -1,4 +1,4 @@
-import { defineComponent, CSSProperties } from "vue";
+import { defineComponent, CSSProperties, ExtractPropTypes } from "vue";
 import { createNamespace, makeStringProp } from "../utils";
 import "./button.less";
 import { ButtonType, ButtonSize, ButtonIconPosition } from "./types";
@@ -17,46 +17,50 @@ const buttonProps = {
 	color: String,
 	iconPosition: makeStringProp<ButtonIconPosition>("left")
 };
+export type ButtonProps = ExtractPropTypes<typeof buttonProps>;
 export default defineComponent({
 	name,
 	props: buttonProps,
 	emits: ["click"],
 	setup(props, { slots, emit }) {
-		const { tag, text, type, icon, iconPosition, size, plain, round, color, disabled, block } = props;
-		const className = bem([size, type, { disabled, block, round }]);
-		const renderText = () => <span class={bem("text")}>{text ? text : slots?.default?.()}</span>;
+		const renderText = () => <span class={bem("text")}>{props.text ? props.text : slots?.default?.()}</span>;
 		const getStyle = () => {
-			if (color) {
+			if (props.color) {
 				const style: CSSProperties = {
-					color: plain ? color : "white"
+					color: props.plain ? props.color : "white"
 				};
-				if (!plain) {
-					style.background = color;
+				if (!props.plain) {
+					style.background = props.color;
 				}
-
-				if (color.includes("gradient")) {
+				if (props.color.includes("gradient")) {
 					style.border = 0;
 				} else {
-					style.borderColor = color;
+					style.borderColor = props.color;
 				}
 				return style;
 			}
 		};
-		const onClick = (event: MouseEvent) => emit("click", event);
+		const onClick = (event: MouseEvent) => {
+			emit("click", event);
+		};
 		const renderIcon = () => {
 			if (slots.icon) {
 				return <div class={bem("icon")}>{slots.icon()}</div>;
 			}
-
-			if (icon) {
-				return <Icon style={getStyle()} name={icon} class={bem("icon")} />;
+			if (props.icon) {
+				return <Icon style={getStyle()} name={props.icon} class={bem("icon")} />;
 			}
 		};
-		return () => (
-			<tag disabled style={getStyle()} onClick={onClick} class={className}>
-				{iconPosition === "left" && renderIcon()}
-				{renderText()}
-			</tag>
-		);
+		return () => {
+			const { tag, text, type, icon, iconPosition, size, plain, round, disabled, block } = props;
+			const className = bem([size, type, { disabled, block, round, text, icon, plain }]);
+			return (
+				<tag style={getStyle()} onClick={onClick} class={className}>
+					{iconPosition === "left" && renderIcon()}
+					{renderText()}
+					{iconPosition === "right" && renderIcon()}
+				</tag>
+			);
+		};
 	}
 });
