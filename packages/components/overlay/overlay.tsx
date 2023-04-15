@@ -9,10 +9,9 @@ const [name, bem] = createNamespace("overlay");
 export default defineComponent({
 	name,
 	props: OverlayProps,
-	inheritAttrs: false,
+	// inheritAttrs: false,
 	setup(props, { slots }) {
 		const root = ref<HTMLElement>();
-		const zIndex = ref<number>();
 		const lazyRender = useLazyRender(() => props.show || !props.lazyRender);
 		const onTouchMove = (event: TouchEvent) => {
 			if (props.lockScroll) {
@@ -27,7 +26,6 @@ export default defineComponent({
 			}
 			return (
 				<div v-show={props.show} class={[className, props.className]} ref={root} style={style.value}>
-					{" "}
 					{slots.default?.()}
 				</div>
 			);
@@ -36,6 +34,6 @@ export default defineComponent({
 		useEventListener("touchmove", onTouchMove, {
 			target: root
 		});
-		return () => <Transition v-slots={{ default: renderOverlay }} name="van-fade" appear></Transition>;
+		return () => <Transition v-slots={{ default: renderOverlay }} name="wp-fade" appear></Transition>;
 	}
 });
