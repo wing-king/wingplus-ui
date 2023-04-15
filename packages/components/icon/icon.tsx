@@ -2,18 +2,35 @@ import { defineComponent } from "vue";
 import { createNamespace } from "../utils";
 import "./fonts/iconfont.js";
 import "./icon.less";
-import { iconProps } from "./types";
+import { IconProps } from "./types";
+import Badge from "../badge";
 const [name, bem] = createNamespace("icon");
 export default defineComponent({
 	name,
-	props: iconProps,
+	props: IconProps,
 	setup(props) {
-		const iconName = `#${name}-${props.name}`;
-		const className = bem();
-		return () => (
-			<svg class={className} aria-hidden="true" style="fill: 'currentColor'">
-				<use xlinkHref={iconName}></use>
-			</svg>
-		);
+		const getIconName = () => `#${name}-${props.name}`;
+		const getStyle = () => {
+			if (props.style) {
+				return props.style;
+			}
+			if (props.color) {
+				return {
+					color: props.color
+				};
+			}
+		};
+		return () => {
+			const { size, tag } = props;
+			const className = bem([size]);
+
+			return (
+				<Badge dot={props.dot} content={props.badge} tag={tag}>
+					<svg class={className} aria-hidden="true" style={getStyle()}>
+						<use xlinkHref={getIconName()}></use>
+					</svg>
+				</Badge>
+			);
+		};
 	}
 });
