@@ -1,3 +1,4 @@
+@import url("../theme-chalk/root.less");
 :root {
 	--wp-button-mini-height: 24px;
 	--wp-button-mini-padding: 0 var(--wp-padding-base);
@@ -34,7 +35,6 @@
 	--wp-button-icon-size: 1.2em;
 	--wp-button-loading-icon-size: 20px;
 }
-@import url("../theme-chalk/root.less");
 
 .wp-button {
 	overflow: hidden;
@@ -54,6 +54,7 @@
 	-webkit-font-smoothing: auto;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	&::before {
 		position: absolute;
 		top: 50%;
@@ -145,11 +146,25 @@
 		padding: var(--wp-button-small-padding);
 		font-size: var(--wp-button-small-font-size);
 	}
+	&--mini {
+		height: var(--wp-button-mini-height);
+		padding: var(--wp-button-mini-padding);
+		font-size: var(--wp-button-mini-font-size);
+
+		& + .wp-button--mini {
+			margin-left: var(--wp-padding-base);
+		}
+	}
 	&--disabled {
 		cursor: not-allowed;
 		opacity: var(--wp-button-disabled-opacity);
 	}
 	&--round {
 		border-radius: var(--wp-button-round-radius);
+	}
+	&__icon {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 }
