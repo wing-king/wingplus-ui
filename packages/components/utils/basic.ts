@@ -1,7 +1,7 @@
 import { isObject } from "./validate";
 import type { ComponentPublicInstance } from "vue";
 
-// export function noop() {}
+export function noop() {}
 
 export const extend = Object.assign;
 
