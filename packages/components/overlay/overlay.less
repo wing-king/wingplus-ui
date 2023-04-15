@@ -1,0 +1,15 @@
+@import url("../theme-chalk/root.less");
+:root {
+	--wp-overlay-z-index: 1;
+	--wp-overlay-background: rgba(0, 0, 0, 0.7);
+}
+
+.wp-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: var(--wp-overlay-z-index);
+	width: 100%;
+	height: 100%;
+	background: var(--wp-overlay-background);
+}
