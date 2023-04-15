@@ -1,5 +1,5 @@
-import { defineComponent } from "vue";
-import { createNamespace } from "../utils";
+import { CSSProperties, computed, defineComponent } from "vue";
+import { createNamespace, extend } from "../utils";
 import "./fonts/iconfont.js";
 import "./icon.less";
 import { IconProps } from "./types";
@@ -10,23 +10,23 @@ export default defineComponent({
 	props: IconProps,
 	setup(props) {
 		const getIconName = () => `#${name}-${props.name}`;
-		const getStyle = () => {
-			if (props.style) {
-				return props.style;
+		const style = computed(() => {
+			const style: CSSProperties = {};
+			if (props.customStyle) {
+				extend({}, props.customStyle);
 			}
 			if (props.color) {
-				return {
-					color: props.color
-				};
+				style.color = props.color;
 			}
-		};
+			return style;
+		});
 		return () => {
 			const { size, tag } = props;
 			const className = bem([size]);
 
 			return (
 				<Badge dot={props.dot} content={props.badge} tag={tag}>
-					<svg class={className} aria-hidden="true" style={getStyle()}>
+					<svg class={className} aria-hidden="true" style={style.value}>
 						<use xlinkHref={getIconName()}></use>
 					</svg>
 				</Badge>

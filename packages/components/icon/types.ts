@@ -1,4 +1,4 @@
-import { ExtractPropTypes, type CSSProperties, PropType } from "vue";
+import { CSSProperties, ExtractPropTypes, PropType } from "vue";
 
 import { makeStringProp } from "../utils";
 
@@ -11,6 +11,6 @@ export const IconProps = {
 	dot: Boolean,
 	size: makeStringProp<IconSize>("normal"),
 	color: String,
-	style: Object
+	customStyle: Object as PropType<CSSProperties>
 };
 export type IconProps = ExtractPropTypes<typeof IconProps>;
