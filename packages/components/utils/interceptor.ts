@@ -18,7 +18,6 @@ export function callInterceptor(
 	if (interceptor) {
 		// eslint-disable-next-line prefer-spread
 		const returnVal = interceptor.apply(null, args);
-
 		if (isPromise(returnVal)) {
 			returnVal
 				.then((value) => {
