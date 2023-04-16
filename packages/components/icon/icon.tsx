@@ -23,14 +23,21 @@ export default defineComponent({
 		return () => {
 			const { size, tag } = props;
 			const className = bem([size]);
-
-			return (
-				<Badge dot={props.dot} content={props.badge} tag={tag}>
+			if (props.dot || props.badge) {
+				return (
+					<Badge dot={props.dot} content={props.badge} tag={tag}>
+						<svg class={className} aria-hidden="true" style={style.value}>
+							<use xlinkHref={getIconName()}></use>
+						</svg>
+					</Badge>
+				);
+			} else {
+				return (
 					<svg class={className} aria-hidden="true" style={style.value}>
 						<use xlinkHref={getIconName()}></use>
 					</svg>
-				</Badge>
-			);
+				);
+			}
 		};
 	}
 });
