@@ -6,6 +6,8 @@ declare module "@vue/runtime-core" {
 		wpBadge: typeof components.Badge;
 		wpOverlay: typeof components.Overlay;
 		wpPopup: typeof components.Popup;
+		WpCheckbox: typeof components.Checkbox;
+		WpCheckboxGroup: typeof components.CheckboxGroup;
 	}
 }
 export {};

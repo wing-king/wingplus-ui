@@ -19,5 +19,8 @@
     },
     "publishConfig": {
         "access": "public"
+    },
+    "dependencies": {
+        "@wingplus-ui/use": "workspace:^1.0.0"
     }
 }

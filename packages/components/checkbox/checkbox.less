@@ -1,0 +1,97 @@
+@import url("../theme-chalk/root.less");
+:root {
+	--wp-checkbox-size: 20px;
+	--wp-checkbox-border-color: var(--wp-gray-5);
+	--wp-checkbox-duration: var(--wp-duration-fast);
+	--wp-checkbox-label-margin: var(--wp-padding-xs);
+	--wp-checkbox-label-color: var(--wp-text-color);
+	--wp-checkbox-checked-icon-color: var(--wp-primary-color);
+	--wp-checkbox-disabled-icon-color: var(--wp-gray-5);
+	--wp-checkbox-disabled-label-color: var(--wp-text-color-3);
+	--wp-checkbox-disabled-background: var(--wp-border-color);
+}
+
+.wp-checkbox {
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+	cursor: pointer;
+	user-select: none;
+
+	&--disabled {
+		cursor: not-allowed;
+	}
+
+	&--label-disabled {
+		cursor: default;
+	}
+
+	&--horizontal {
+		margin-right: var(--wp-padding-sm);
+	}
+
+	&__icon {
+		flex: none;
+		height: 1em;
+		font-size: var(--wp-checkbox-size);
+		line-height: 1em;
+		cursor: pointer;
+
+		.wp-icon {
+			display: block;
+			box-sizing: border-box;
+			width: 1.25em;
+			height: 1.25em;
+			color: transparent;
+			font-size: 0.8em;
+			line-height: 1.25;
+			text-align: center;
+			border: 1px solid var(--wp-checkbox-border-color);
+			transition-duration: var(--wp-checkbox-duration);
+			transition-property: color, border-color, background-color;
+		}
+
+		&--round {
+			.wp-icon {
+				border-radius: 100%;
+			}
+		}
+
+		&--checked {
+			.wp-icon {
+				color: var(--wp-white);
+				background-color: var(--wp-checkbox-checked-icon-color);
+				border-color: var(--wp-checkbox-checked-icon-color);
+			}
+		}
+
+		&--disabled {
+			cursor: not-allowed;
+
+			.wp-icon {
+				background-color: var(--wp-checkbox-disabled-background);
+				border-color: var(--wp-checkbox-disabled-icon-color);
+			}
+		}
+
+		&--disabled&--checked {
+			.wp-icon {
+				color: var(--wp-checkbox-disabled-icon-color);
+			}
+		}
+	}
+
+	&__label {
+		margin-left: var(--wp-checkbox-label-margin);
+		color: var(--wp-checkbox-label-color);
+		line-height: var(--wp-checkbox-size);
+
+		&--left {
+			margin: 0 var(--wp-checkbox-label-margin) 0 0;
+		}
+
+		&--disabled {
+			color: var(--wp-checkbox-disabled-label-color);
+		}
+	}
+}
