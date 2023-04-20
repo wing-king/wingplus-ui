@@ -14,23 +14,16 @@ export type CheckerParent = {
 
 export type Numeric = number | string;
 
-export const CheckerProps = extend(
-	{
-		name: unknownProp,
-		shape: makeStringProp<CheckerShape>("round"),
-		disabled: Boolean,
-		iconSize: numericProp,
-		modelValue: unknownProp,
-		checkedColor: String,
-		labelPosition: String as PropType<CheckerLabelPosition>,
-		labelDisabled: Boolean
-	},
-	{
-		bem: Function,
-		role: String,
-		parent: Object as PropType<CheckerParent | null>,
-		checked: Boolean,
-		bindGroup: truthProp
-	}
-);
+export const CheckerProps = {
+	name: unknownProp,
+	shape: makeStringProp<CheckerShape>("round"),
+	disabled: Boolean,
+	iconSize: numericProp,
+	modelValue: unknownProp,
+	checkedColor: String,
+	labelPosition: String as PropType<CheckerLabelPosition>,
+	labelDisabled: Boolean
+};
+
+export const checkerProps = CheckerProps;
 export type CheckerProps = ExtractPropTypes<typeof CheckerProps>;

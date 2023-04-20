@@ -1,12 +1,18 @@
-import { ref, computed, defineComponent } from "vue";
+import { ref, computed, defineComponent, PropType } from "vue";
 import { Icon } from "../icon";
 
 import { CheckerParent, CheckerProps } from "./types";
-import { addUnit, createNamespace } from "../utils";
+import { addUnit, createNamespace, extend, truthProp } from "../utils";
 const [name] = createNamespace("checker");
 export default defineComponent({
 	name,
-	props: CheckerProps,
+	props: extend(CheckerProps, {
+		bem: Function,
+		role: String,
+		parent: Object as PropType<CheckerParent | null>,
+		checked: Boolean,
+		bindGroup: truthProp
+	}),
 
 	emits: ["click", "toggle"],
 
