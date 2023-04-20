@@ -2,3 +2,4 @@ packages:
 - "packages/**"
 - "view"
 - "website"
+- "wingplus-use"
