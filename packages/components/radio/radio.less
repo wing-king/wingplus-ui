@@ -1,0 +1,97 @@
+@import url("../theme-chalk/root.less");
+:root {
+	--wp-radio-size: 20px;
+	--wp-radio-border-color: var(--wp-gray-5);
+	--wp-radio-duration: var(--wp-duration-fast);
+	--wp-radio-label-margin: var(--wp-padding-xs);
+	--wp-radio-label-color: var(--wp-text-color);
+	--wp-radio-checked-icon-color: var(--wp-primary-color);
+	--wp-radio-disabled-icon-color: var(--wp-gray-5);
+	--wp-radio-disabled-label-color: var(--wp-text-color-3);
+	--wp-radio-disabled-background: var(--wp-border-color);
+}
+
+.wp-radio {
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+	cursor: pointer;
+	user-select: none;
+
+	&--disabled {
+		cursor: not-allowed;
+	}
+
+	&--label-disabled {
+		cursor: default;
+	}
+
+	&--horizontal {
+		margin-right: var(--wp-padding-sm);
+	}
+
+	&__icon {
+		flex: none;
+		height: 1em;
+		font-size: var(--wp-radio-size);
+		line-height: 1em;
+		cursor: pointer;
+
+		.wp-icon {
+			display: block;
+			box-sizing: border-box;
+			width: 1.25em;
+			height: 1.25em;
+			color: transparent;
+			font-size: 0.8em;
+			line-height: 1.25;
+			text-align: center;
+			border: 1px solid var(--wp-radio-border-color);
+			transition-duration: var(--wp-radio-duration);
+			transition-property: color, border-color, background-color;
+		}
+
+		&--round {
+			.wp-icon {
+				border-radius: 100%;
+			}
+		}
+
+		&--checked {
+			.wp-icon {
+				color: var(--wp-white);
+				background-color: var(--wp-radio-checked-icon-color);
+				border-color: var(--wp-radio-checked-icon-color);
+			}
+		}
+
+		&--disabled {
+			cursor: not-allowed;
+
+			.wp-icon {
+				background-color: var(--wp-radio-disabled-background);
+				border-color: var(--wp-radio-disabled-icon-color);
+			}
+		}
+
+		&--disabled&--checked {
+			.wp-icon {
+				color: var(--wp-radio-disabled-icon-color);
+			}
+		}
+	}
+
+	&__label {
+		margin-left: var(--wp-radio-label-margin);
+		color: var(--wp-radio-label-color);
+		line-height: var(--wp-radio-size);
+
+		&--left {
+			margin: 0 var(--wp-radio-label-margin) 0 0;
+		}
+
+		&--disabled {
+			color: var(--wp-radio-disabled-label-color);
+		}
+	}
+}

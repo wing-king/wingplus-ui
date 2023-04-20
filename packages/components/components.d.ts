@@ -8,6 +8,8 @@ declare module "@vue/runtime-core" {
 		wpPopup: typeof components.Popup;
 		WpCheckbox: typeof components.Checkbox;
 		WpCheckboxGroup: typeof components.CheckboxGroup;
+		WpRadio: typeof components.Radio;
+		WpRadioGroup: typeof components.RadioGroup;
 	}
 }
 export {};
