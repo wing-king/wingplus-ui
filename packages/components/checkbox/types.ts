@@ -21,8 +21,7 @@ export type CheckerParent = {
 };
 
 export type Numeric = number | string;
-
-export const CheckerProps = extend({
+export const checkerProps = {
 	name: unknownProp,
 	shape: makeStringProp<CheckerShape>("round"),
 	disabled: Boolean,
@@ -31,9 +30,9 @@ export const CheckerProps = extend({
 	checkedColor: String,
 	labelPosition: String as PropType<CheckerLabelPosition>,
 	labelDisabled: Boolean
-});
-export const CheckboxProps = extend({}, CheckerProps, {
+};
+export const CheckboxProps = extend({}, checkerProps, {
 	bindGroup: truthProp
 });
-export type CheckerProps = ExtractPropTypes<typeof CheckerProps>;
+export type CheckerProps = ExtractPropTypes<typeof checkerProps>;
 export type CheckboxProps = ExtractPropTypes<typeof CheckboxProps>;
