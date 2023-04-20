@@ -13,7 +13,6 @@
         "docs:build": "cd ./website && vitepress build docs",
         "docs:preview": "cd ./website && vitepress preview docs",
         "changeset": "changeset",
-        "preinstall": "npx only-allow pnpm",
         "commit": "git-cz",
         "commitall": "git add . && cz-customizable",
         "prepare": "husky install",
