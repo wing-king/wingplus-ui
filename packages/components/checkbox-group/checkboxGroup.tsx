@@ -1,5 +1,5 @@
 import { watch, defineComponent, type InjectionKey } from "vue";
-
+import "./checkboxGroup.less";
 // Utils
 import { createNamespace } from "../utils";
 

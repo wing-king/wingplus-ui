@@ -1,7 +1,7 @@
 import { withInstall } from "../utils";
-import _CheckerGroup from "./checkboxGroup";
-export const CheckerGroup = withInstall(_CheckerGroup);
-export default CheckerGroup;
+import _CheckboxGroup from "./checkboxGroup";
+export const CheckboxGroup = withInstall(_CheckboxGroup);
+export default CheckboxGroup;
 export type {
 	checkboxGroupProps,
 	CheckboxGroupDirection,
