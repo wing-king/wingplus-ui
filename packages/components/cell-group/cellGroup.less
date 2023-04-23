@@ -1,0 +1,31 @@
+:root {
+	--wp-cell-group-background: var(--wp-background-2);
+	--wp-cell-group-title-color: var(--wp-text-color-2);
+	--wp-cell-group-title-padding: var(--wp-padding-md) var(--wp-padding-md);
+	--wp-cell-group-title-font-size: var(--wp-font-size-md);
+	--wp-cell-group-title-line-height: 16px;
+	--wp-cell-group-inset-padding: 0 var(--wp-padding-md);
+	--wp-cell-group-inset-radius: var(--wp-radius-lg);
+	--wp-cell-group-inset-title-padding: var(--wp-padding-md) var(--wp-padding-md);
+}
+
+.wp-cell-group {
+	background: var(--wp-cell-group-background);
+
+	&--inset {
+		margin: var(--wp-cell-group-inset-padding);
+		border-radius: var(--wp-cell-group-inset-radius);
+		overflow: hidden;
+	}
+
+	&__title {
+		padding: var(--wp-cell-group-title-padding);
+		color: var(--wp-cell-group-title-color);
+		font-size: var(--wp-cell-group-title-font-size);
+		line-height: var(--wp-cell-group-title-line-height);
+
+		&--inset {
+			padding: var(--wp-cell-group-inset-title-padding);
+		}
+	}
+}
