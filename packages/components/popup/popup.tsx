@@ -23,6 +23,7 @@ const [name, bem] = createNamespace("popup");
 export default defineComponent({
 	name,
 	props: PopupProps,
+	emits: ["open", "close", "opened", "closed", "keydown", "update:show", "clickOverlay", "clickCloseIcon"],
 	inheritAttrs: false,
 	setup(props, { slots, emit, attrs }) {
 		const zIndex = ref<number>();
@@ -194,10 +195,10 @@ export default defineComponent({
 				shouldReopen = false;
 			}
 		});
-		// 抛出组件挂载
-		defineExpose({
-			popupRef
-		});
+		// // 抛出组件挂载
+		// defineExpose({
+		// 	popupRef
+		// });
 		return () => {
 			if (props.teleport) {
 				return (
