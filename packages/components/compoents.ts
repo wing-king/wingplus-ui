@@ -9,3 +9,4 @@ export * from "./radio";
 export * from "./radios-group";
 export * from "./cell";
 export * from "./cell-group";
+export * from "./loading";

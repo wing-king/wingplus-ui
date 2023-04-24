@@ -12,6 +12,7 @@ declare module "@vue/runtime-core" {
 		WpRadioGroup: typeof components.RadioGroup;
 		WpCell: typeof components.Cell;
 		WpCellGroup: typeof components.CellGroup;
+		WpLoading: typeof components.Loading;
 	}
 }
 export {};
