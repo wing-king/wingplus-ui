@@ -13,6 +13,7 @@ declare module "@vue/runtime-core" {
 		WpCell: typeof components.Cell;
 		WpCellGroup: typeof components.CellGroup;
 		WpLoading: typeof components.Loading;
+		WpToast: typeof components.Toast;
 	}
 }
 export {};

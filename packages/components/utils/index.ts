@@ -7,3 +7,4 @@ export * from "./format";
 export * from "./basic";
 export * from "./interceptor";
 export * from "./dom";
+export * from "./mount-component";

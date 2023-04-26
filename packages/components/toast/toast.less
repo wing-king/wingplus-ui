@@ -1,0 +1,102 @@
+:root {
+	--wp-toast-max-width: 70%;
+	--wp-toast-font-size: var(--wp-font-size-md);
+	--wp-toast-text-color: var(--wp-white);
+	--wp-toast-loading-icon-color: var(--wp-white);
+	--wp-toast-line-height: var(--wp-line-height-md);
+	--wp-toast-radius: var(--wp-radius-lg);
+	--wp-toast-background: rgba(0, 0, 0, 0.7);
+	--wp-toast-icon-size: 36px;
+	--wp-toast-text-min-width: 96px;
+	--wp-toast-text-padding: var(--wp-padding-xs) var(--wp-padding-sm);
+	--wp-toast-default-padding: var(--wp-padding-md);
+	--wp-toast-default-width: 88px;
+	--wp-toast-default-min-height: 88px;
+	--wp-toast-position-top-distance: 20%;
+	--wp-toast-position-bottom-distance: 20%;
+}
+
+.wp-toast {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	box-sizing: content-box;
+	transition: all var(--wp-duration-fast);
+
+	// hack for avoid max-width when use left & fixed
+	width: var(--wp-toast-default-width);
+	max-width: var(--wp-toast-max-width);
+	min-height: var(--wp-toast-default-min-height);
+	padding: var(--wp-toast-default-padding);
+	color: var(--wp-toast-text-color);
+	font-size: var(--wp-toast-font-size);
+	line-height: var(--wp-toast-line-height);
+
+	// allow newline character
+	white-space: pre-wrap;
+	word-break: break-all;
+	text-align: center;
+	background: var(--wp-toast-background);
+	border-radius: var(--wp-toast-radius);
+
+	&--break {
+		&-normal {
+			word-break: normal;
+			word-wrap: normal;
+		}
+
+		&-word {
+			word-break: normal;
+			word-wrap: break-word;
+		}
+	}
+
+	&--unclickable {
+		// lock scroll
+		overflow: hidden;
+		cursor: not-allowed;
+
+		// should not add pointer-events: none directly to body tag
+		// that will cause unexpected tap-highlight-color in mobile safari
+		* {
+			pointer-events: none;
+		}
+	}
+
+	&--text,
+	&--html {
+		width: fit-content;
+		min-width: var(--wp-toast-text-min-width);
+		min-height: 0;
+		padding: var(--wp-toast-text-padding);
+
+		.wp-toast__text {
+			margin-top: 0;
+		}
+	}
+
+	&--top {
+		top: var(--wp-toast-position-top-distance);
+	}
+
+	&--bottom {
+		top: auto;
+		bottom: var(--wp-toast-position-bottom-distance);
+	}
+
+	&__icon {
+		width: var(--wp-toast-icon-size);
+		height: var(--wp-toast-icon-size);
+		color: #fff;
+	}
+
+	&__loading {
+		padding: var(--wp-padding-base);
+		color: var(--wp-toast-loading-icon-color);
+	}
+
+	&__text {
+		margin-top: var(--wp-padding-xs);
+	}
+}
