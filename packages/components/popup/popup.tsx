@@ -17,7 +17,7 @@ import "./popup.less";
 import { PopupProps } from "./types";
 import Overlay from "../overlay";
 import Icon from "../icon";
-import { useGlobalZIndex, useLazyRender } from "../composables";
+import { useExpose, useGlobalZIndex, useLazyRender } from "../composables";
 import { useEventListener } from "@wingplus-ui/use";
 const [name, bem] = createNamespace("popup");
 export default defineComponent({
@@ -195,10 +195,10 @@ export default defineComponent({
 				shouldReopen = false;
 			}
 		});
-		// // 抛出组件挂载
-		// defineExpose({
-		// 	popupRef
-		// });
+		// 抛出组件挂载
+		useExpose({
+			popupRef
+		});
 		return () => {
 			if (props.teleport) {
 				return (
