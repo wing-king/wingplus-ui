@@ -1,10 +1,13 @@
 export * from "./compoents";
 import * as components from "./compoents";
-import { App } from "vue";
+import { App, Component } from "vue";
 export default {
 	install: (app: App) => {
-		for (const c in components) {
-			app.use(components[c as keyof typeof components]);
+		const compoentsList: Component = Object.keys(components)
+			.filter((item) => typeof (components as any)?.[item] === "object")
+			.map((key) => (components as any)?.[key]);
+		for (const c in compoentsList) {
+			app.use(compoentsList[c as keyof typeof compoentsList]);
 		}
 	}
 };
