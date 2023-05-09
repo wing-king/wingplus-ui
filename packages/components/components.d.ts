@@ -14,6 +14,7 @@ declare module "@vue/runtime-core" {
 		WpCellGroup: typeof components.CellGroup;
 		WpLoading: typeof components.Loading;
 		WpToast: typeof components.Toast;
+		WpPicker: typeof components.Picker;
 	}
 }
 export {};

@@ -1,6 +1,7 @@
 import type { CSSProperties } from "vue";
 import { inBrowser, type Numeric } from "./basic";
 import { isDef, isNumeric } from "./validate";
+import { windowHeight, windowWidth } from "./dom";
 
 export function addUnit(value?: Numeric): string | undefined {
 	if (isDef(value)) {
@@ -52,35 +53,35 @@ function convertRem(value: string) {
 	return +value * getRootFontSize();
 }
 
-//   function convertVw(value: string) {
-//     value = value.replace(/vw/g, '');
-//     return (+value * windowWidth.value) / 100;
-//   }
+function convertVw(value: string) {
+	value = value.replace(/vw/g, "");
+	return (+value * windowWidth.value) / 100;
+}
 
-//   function convertVh(value: string) {
-//     value = value.replace(/vh/g, '');
-//     return (+value * windowHeight.value) / 100;
-//   }
+function convertVh(value: string) {
+	value = value.replace(/vh/g, "");
+	return (+value * windowHeight.value) / 100;
+}
 
-//   export function unitToPx(value: Numeric): number {
-//     if (typeof value === 'number') {
-//       return value;
-//     }
+export function unitToPx(value: Numeric): number {
+	if (typeof value === "number") {
+		return value;
+	}
 
-//     if (inBrowser) {
-//       if (value.includes('rem')) {
-//         return convertRem(value);
-//       }
-//       if (value.includes('vw')) {
-//         return convertVw(value);
-//       }
-//       if (value.includes('vh')) {
-//         return convertVh(value);
-//       }
-//     }
+	if (inBrowser) {
+		if (value.includes("rem")) {
+			return convertRem(value);
+		}
+		if (value.includes("vw")) {
+			return convertVw(value);
+		}
+		if (value.includes("vh")) {
+			return convertVh(value);
+		}
+	}
 
-//     return parseFloat(value);
-//   }
+	return parseFloat(value);
+}
 
 export const kebabCase = (str: string) =>
 	str
