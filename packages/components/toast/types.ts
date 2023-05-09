@@ -1,6 +1,6 @@
 import type { CSSProperties, ComponentPublicInstance, ExtractPropTypes, PropType, TeleportProps } from "vue";
 import { Numeric, makeNumberProp, makeStringProp, numericProp, unknownProp } from "../utils";
-import { IconSize } from "icon";
+import { IconSize } from "../icon";
 export type LoadingType = "circular" | "spinner";
 export type ToastType = "text" | "loading" | "success" | "warning" | "html";
 export type ToastPosition = "top" | "middle" | "bottom";
